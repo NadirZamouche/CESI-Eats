@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "1627",
+    "database": "advanced-web-project",
+    "host": "mysql",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "1627",
+    "database": "advanced-web-project",
+    "host": "mysql",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "1627",
+    "database": "advanced-web-project",
+    "host": "mysql",
+    "dialect": "mysql"
+  }
+}

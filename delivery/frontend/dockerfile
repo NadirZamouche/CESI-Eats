@@ -1,0 +1,17 @@
+FROM node:18.20.3
+
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+# Install dependencies
+RUN npm install
+
+COPY . .
+
+# Set environment variables for the container
+ENV PORT=3003
+
+EXPOSE 3003
+
+CMD ["npm", "start"]

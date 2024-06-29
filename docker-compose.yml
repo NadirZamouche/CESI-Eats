@@ -1,0 +1,121 @@
+version: '3.7.0'
+services:
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: '1627'
+      MYSQL_DATABASE: 'advanced-web-project'
+    ports:
+      - '3307:3306'
+
+  enduser-backend:
+    build: ./enduser/backend
+    ports:
+      - '5001:5001'
+    depends_on:
+      - mongo
+      - mysql
+
+  enduser-frontend:
+    build: ./enduser/frontend
+    ports:
+      - '3001:3001'
+
+  restaurateur-backend:
+    build: ./restaurateur/backend
+    ports:
+      - '5002:5002'
+    depends_on:
+      - mongo
+      - mysql
+
+  restaurateur-frontend:
+    build: ./restaurateur/frontend
+    ports:
+      - '3002:3002'
+
+  delivery-backend:
+    build: ./delivery/backend
+    ports:
+      - '5003:5003'
+    depends_on:
+      - mongo
+      - mysql
+
+  delivery-frontend:
+    build: ./delivery/frontend
+    ports:
+      - '3003:3003'
+
+  developer-backend:
+    build: ./developer/backend
+    ports:
+      - '5004:5004'
+    depends_on:
+      - mongo
+      - mysql
+
+  developer-frontend:
+    build: ./developer/frontend
+    ports:
+      - '3004:3004'
+
+  commercial-backend:
+    build: ./commercial/backend
+    ports:
+      - '5005:5005'
+    depends_on:
+      - mongo
+      - mysql
+
+  commercial-frontend:
+    build: ./commercial/frontend
+    ports:
+      - '3005:3005'
+
+  technical-backend:
+    build: ./technical/backend
+    ports:
+      - '5006:5006'
+    depends_on:
+      - mongo
+      - mysql
+
+  technical-frontend:
+    build: ./technical/frontend
+    ports:
+      - '3006:3006'
+
+  image-service:
+    build: ./image-service
+    ports:
+      - '5010:5010'
+    depends_on:
+      - mongo
+
+  auth-service:
+    build: ./auth
+    ports:
+      - '5007:5007'
+    depends_on:
+      - mongo
+      - mysql
+
+  gateway:
+    build: ./gateway
+    ports:
+      - '5000:5000'
+    depends_on:
+      - enduser-backend
+      - restaurateur-backend
+      - delivery-backend
+      - developer-backend
+      - commercial-backend
+      - technical-backend
+      - image-service
+      - auth-service

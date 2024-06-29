@@ -1,0 +1,15 @@
+/enduser/backend/node_modules
+/enduser/frontend/node_modules
+/restaurateur/backend/node_modules
+/restaurateur/frontend/node_modules
+/delivery/backend/node_modules
+/delivery/frontend/node_modules
+/developer/backend/node_modules
+/developer/frontend/node_modules
+/commercial/backend/node_modules
+/commercial/frontend/node_modules
+/technical/backend/node_modules
+/technical/frontend/node_modules
+/gateway/node_modules
+/image-service/node_modules
+/auth/node_modules
